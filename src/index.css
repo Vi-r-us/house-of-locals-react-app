@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Made Mirage Font */
+@font-face {
+  font-family: "Made Mirage";
+  src: url("/src/assets/font/Made_Mirage_Thin.otf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Made Mirage";
+  src: url("/src/assets/font/Made_Mirage_Regular.otf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Made Mirage";
+  src: url("/src/assets/font/Made_Mirage_Medium.otf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Made Mirage";
+  src: url("/src/assets/font/Made_Mirage_Bold.otf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Made Mirage";
+  src: url("/src/assets/font/Made_Mirage_Black.otf") format("truetype");
+  font-weight: 900;
+}
+
+/* Acumin Pro Font */
+@font-face {
+  font-family: "Acumin Pro";
+  src: url("/src/assets/font/Acumin_Pro_Thin.otf") format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Acumin Pro";
+  src: url("/src/assets/font/Acumin_Pro_Light.otf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Acumin Pro";
+  src: url("/src/assets/font/Acumin_Pro_Medium.otf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Acumin Pro";
+  src: url("/src/assets/font/Acumin_Pro_Bold.otf") format("truetype");
+  font-weight: 700;
+}
+
+/* Josh's Custom CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  /* font-family: "Made Mirage", sans-serif; */
+  font-family: "Acumin Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Made Mirage", sans-serif;
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff5eb;
+}
+
+@layer components {
+  main {
+    @apply bg-serenade-50 p-2 lg:p-4 w-full flex flex-col items-center min-h-screen max-w-[120rem] relative;
+  }
+  .product-grid {
+    @apply grid grid-cols-1 gap-[1px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-tom-500;
+  }
+}
+
+.filter-form {
+  grid-template-areas:
+    "search-box search-box"
+    "category category"
+    "company company"
+    "order order"
+    "price-range price-range"
+    "free-shipping free-shipping"
+    "clear-button search-button";
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1.5fr 1.25fr 1fr 1fr;
+    grid-template-areas:
+      "search-box category company order"
+      "price-range free-shipping clear-button search-button";
+  }
+}
+
+.cart {
+  grid-template-areas:
+    "cart-header"
+    "cart-items"
+    "cart-total";
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1.75fr 1fr;
+    gap: 1.5rem;
+    grid-template-areas:
+      "cart-header cart-header"
+      "cart-items cart-total";
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    grid-template-columns: 55% 45%;
+  }
+}
+
+.shipping-address-grid {
+  grid-template-areas:
+    "header"
+    "name"
+    "phone"
+    "address"
+    "city"
+    "district"
+    "state"
+    "landmark"
+    "alternative-phone";
+
+  @media screen and (min-width: 768px) {
+    grid-template-areas:
+      "header header header header header header"
+      "name name name phone phone phone"
+      "address address address address address address"
+      "city city district district state state"
+      "landmark landmark landmark alternative-phone alternative-phone alternative-phone";
+  }
+}
+
+.about-page-articles-grid {
+  h2 {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  @media screen and (min-width: 768px) {
+    h2:first-of-type {
+      writing-mode: vertical-rl;
+    }
+    h2:last-of-type {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.checkout-grid {
+  grid-template-areas:
+    "address-section"
+    "delivery-policy-section"
+    "product-summary-section";
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+      "address-section product-summary-section"
+      "delivery-policy-section product-summary-section";
+  }
+}
+
+.animate-width-expand-animation {
+  animation-name: width-expand-animation;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes width-expand-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
